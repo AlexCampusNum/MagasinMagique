@@ -13,19 +13,19 @@ class MagasinTest {
 
     @Test
     void testRegularItem() {
-        int sellIn = random.nextInt(20);
-        int quality = random.nextInt(51);
-        Item[] items = new Item[] { new Item("Regular Item", sellIn, quality) };
+//        int sellIn = 1 + random.nextInt(20);
+//        int quality = random.nextInt(50);
+        Item[] items = new Item[] { new Item("Regular Item", 10, 10) };
         Magasin app = new Magasin(items);
         app.updateQuality();
-        assertEquals(sellIn -1, items[0].sellIn);
-        assertEquals(quality -1, items[0].quality);
+        assertEquals(9, items[0].sellIn);
+        assertEquals(9, items[0].quality);
     }
 
     @Test
     void testComte() {
-        int sellIn = random.nextInt(20);
-        int quality = random.nextInt(51);
+        int sellIn = 1 + random.nextInt(20);
+        int quality = random.nextInt(50);
         Item[] items = new Item[] { new Item("Comté", sellIn, quality) };
         Magasin app = new Magasin(items);
         app.updateQuality();
@@ -36,43 +36,43 @@ class MagasinTest {
 
     @Test
     void testPassVipBefore10Days(){
-        int sellIn = 10 + random.nextInt(20);
-        int quality = random.nextInt(51);
-        Item[] items = new Item[] { new Item("Pass VIP Concert", sellIn, quality) };
+//        int sellIn = 11 + random.nextInt(20);
+//        int quality = random.nextInt(51);
+        Item[] items = new Item[] { new Item("Pass VIP Concert", 11, 11) };
         Magasin app = new Magasin(items);
         app.updateQuality();
         assertEquals("Pass VIP Concert", items[0].name);
-        assertEquals(sellIn -1, items[0].sellIn);
-        assertEquals(quality +1, items[0].quality);
+        assertEquals(10, items[0].sellIn);
+        assertEquals(12, items[0].quality);
     }
 
     @Test
     void testPassVip10Days(){
-        int sellIn = 5 + random.nextInt(6);
-        int quality = random.nextInt(51);
-        Item[] items = new Item[] { new Item("Pass VIP Concert", sellIn, quality) };
+//        int sellIn = 6 + random.nextInt(5);
+//        int quality = random.nextInt(51);
+        Item[] items = new Item[] { new Item("Pass VIP Concert", 10, 10) };
         Magasin app = new Magasin(items);
         app.updateQuality();
         assertEquals("Pass VIP Concert", items[0].name);
-        assertEquals(sellIn -1, items[0].sellIn);
-        assertEquals(quality +2, items[0].quality);
+        assertEquals(9, items[0].sellIn);
+        assertEquals(12, items[0].quality);
     }
 
     @Test
     void testPassVip5Days(){
-        int sellIn = random.nextInt(6);
-        int quality = random.nextInt(51);
-        Item[] items = new Item[] { new Item("Pass VIP Concert", sellIn, quality) };
+//        int sellIn = random.nextInt(6);
+//        int quality = 1 + random.nextInt(51);
+        Item[] items = new Item[] { new Item("Pass VIP Concert", 5, 10) };
         Magasin app = new Magasin(items);
         app.updateQuality();
         assertEquals("Pass VIP Concert", items[0].name);
-        assertEquals(sellIn -1, items[0].sellIn);
-        assertEquals(quality +3, items[0].quality);
+        assertEquals(4, items[0].sellIn);
+        assertEquals(13, items[0].quality);
     }
 
     @Test
     void testKryptonite(){
-        int sellIn = random.nextInt(30);
+        int sellIn = 1 + random.nextInt(30);
         Item[] items = new Item[] { new Item("Kryptonite", sellIn, 80) };
         Magasin app = new Magasin(items);
         app.updateQuality();
@@ -85,7 +85,7 @@ class MagasinTest {
 
     @Test
     void testRegularItemQuality() {
-        int sellIn = random.nextInt(30);
+        int sellIn = 1 + random.nextInt(30);
         Item[] items = new Item[] { new Item("Regular Item", sellIn, 0) };
         Magasin app = new Magasin(items);
         app.updateQuality();
@@ -127,7 +127,7 @@ class MagasinTest {
     @Test
     void testRegularItemExpiration(){
         int sellIn = random.nextInt(31) -30;
-        int quality = random.nextInt(51);
+        int quality = 2 + random.nextInt(51);
         Item[] items = new Item[] { new Item("Regular Item", sellIn, quality) };
         Magasin app = new Magasin(items);
         app.updateQuality();
@@ -136,34 +136,34 @@ class MagasinTest {
         assertEquals(quality -2, items[0].quality);
     }
 
-//    @Test
-//    void testPouvoirsMagiques(){
-//        Item[] items = new Item[] { new Item("Pouvoirs Magiques", 10, 20) };
-//        Magasin app = new Magasin(items);
-//        app.updateQuality();
-//        assertEquals("Pouvoirs Magiques", items[0].name);
-//        assertEquals(9, items[0].sellIn);
-//        assertEquals(18, items[0].quality);
-//    }
-//
-//    @Test
-//    void testPouvoirsMagiquesExpiration(){
-//        Item[] items = new Item[] { new Item("Pouvoirs magiques", 0, 10) };
-//        Magasin app = new Magasin(items);
-//        app.updateQuality();
-//        assertEquals("Pouvoirs magiques", items[0].name);
-//        assertEquals(-1, items[0].sellIn);
-//        assertEquals(6, items[0].quality);
-//    }    Pouvoirs Magiques est à ajouter dans le code, pour l'instant il n'y sont pas
-//
-//    @Test
-//    void testPouvoirsMagiques(){
-//        Item[] items = new Item[] { new Item("Pouvoirs Magiques", 10, 0) };
-//        Magasin app = new Magasin(items);
-//        app.updateQuality();
-//        assertEquals("Pouvoirs Magiques", items[0].name);
-//        assertEquals(9, items[0].sellIn);
-//        assertEquals(0, items[0].quality);
-//    }
+    @Test
+    void testPouvoirsMagiques(){
+        Item[] items = new Item[] { new Item("Pouvoirs Magiques", 10, 20) };
+        Magasin app = new Magasin(items);
+        app.updateQuality();
+        assertEquals("Pouvoirs Magiques", items[0].name);
+        assertEquals(9, items[0].sellIn);
+        assertEquals(18, items[0].quality);
+    }
+
+    @Test
+    void testPouvoirsMagiquesExpiration(){
+        Item[] items = new Item[] { new Item("Pouvoirs magiques", 0, 10) };
+        Magasin app = new Magasin(items);
+        app.updateQuality();
+        assertEquals("Pouvoirs magiques", items[0].name);
+        assertEquals(-1, items[0].sellIn);
+        assertEquals(6, items[0].quality);
+    }
+
+    @Test
+    void testPouvoirsMagiquesQuality(){
+        Item[] items = new Item[] { new Item("Pouvoirs Magiques", 10, 0) };
+        Magasin app = new Magasin(items);
+        app.updateQuality();
+        assertEquals("Pouvoirs Magiques", items[0].name);
+        assertEquals(9, items[0].sellIn);
+        assertEquals(0, items[0].quality);
+    }
 
 }
